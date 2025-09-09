@@ -5,10 +5,10 @@ Version : 0.2
 Langage : Python 3.x  
 
 Financement : **Office National des Forêts - Pôle RDI de Chambéry** (*laurent.malabeux@onf.fr*)  
-![ONF](./sylvaroad/img/onf_logo.gif?raw=true)
+![ONF](./img/onf_logo.gif?raw=true)
 
 Conception et développement : **Sylvain DUPIRE, SylvaLab - 2021** (*sylvain.dupire@sylvalab.fr*)   
-![SylvaLab](./sylvaroad/img/logo_sylvalab.png?raw=true)
+![SylvaLab](./img/logo_sylvalab.png?raw=true)
 
 ---
 ### Contexte et objectif de SylvaRoaD
@@ -20,7 +20,7 @@ Dans le cadre de la conception de nouvelles dessertes forestières (route ou pis
 SylvaRoaD s'inscrit dans cette logique et ambitionne d'aider les forestiers dans la conception de nouvelles dessertes forestières en leur permettant d'identifier un tracé optimal respectant plusieurs critères définis par l'utilisateur afin de desservir de nouvelles parcelles forestières. L'outil permet ainsi de tester rapidement plusieurs options d'itinéraires ou encore de rajouter des points de passages obligatoires. 
 Les différents tracés ainsi identifiés peuvent être incorporés dans un GPS afin d'en valider la faisabilité sur le terrain.  
 
-![SylvaLab](./sylvaroad/img/illustration.png?raw=true)
+![SylvaLab](./img/illustration.png?raw=true)
 
 Tags = ___Desserte___, ___forestière___, ___montagne___, ___route___, ___MNT___, ___tracé___, ___conception___, ___création___, ___Forest___, ___Road___, ___Design___, ___DTM___  
 
@@ -63,6 +63,77 @@ Tags = ___Desserte___, ___forestière___, ___montagne___, ___route___, ___MNT___
 &nbsp;   
   
 
+*ENGLISH VERSION*
+
+# SylvaRoaD 
+## Tool to assist in the design of new forest access routes 
+
+Version : 0.2  
+Language : Python 3.x
+
+Funding : **Office National des Forêts - Pôle RDI de Chambéry** (*laurent.malabeux@onf.fr*)  
+![ONF](./img/onf_logo.gif?raw=true)
+
+Conception and developement : **Sylvain DUPIRE, SylvaLab - 2021** (*sylvain.dupire@sylvalab.fr*)   
+![SylvaLab](./img/logo_sylvalab.png?raw=true)
+
+---
+### Context and Objective of SylvaRoaD
+
+Digital terrain models (DTMs) derived from high-resolution spatial data (LiDAR, radar, etc.) now provide a very accurate representation of terrain. This high-quality representation opens the door to numerous digital applications to facilitate foresters' fieldwork, particularly in the most rugged areas.
+
+When designing new forest access routes (roads or trails), this type of DTM allows the use of efficient and accurate route-finding algorithms.
+
+SylvaRoaD is part of this approach and aims to assist foresters in the design of new forest access routes by enabling them to identify an optimal route that meets several user-defined criteria to serve new forest plots. The tool thus allows for the rapid testing of several route options or the addition of mandatory waypoints.
+
+The various routes thus identified can be incorporated into a GPS in order to validate their feasibility on the ground. 
+
+This plugin is a QGIS adaptation of the tool that can be found at: (<https://gitlab.com/SDupire/sylvaroad>)
+
+![SylvaLab](./img/illustration.png?raw=true)
+
+Tags = ___Forest___, ___Road___, ___Design___, ___DTM___  
+
+---  
+### SylvaRoaD Input Data
+
+**Mandatory Spatial Data**:
+
+- Digital terrain model (raster preferably from Lidar data)
+- Mandatory waypoints (shapefile of points) including the start and end points of the route to be designed and (optionally) intermediate waypoints.
+
+**Optional Spatial Data**:
+
+- A folder containing obstacle layers (all formats accepted)
+- A layer describing the land and allowing the distinction between parcels where the route can pass and those where it cannot
+
+**Modeling Parameters**:
+
+- Maximum cross slope
+- Maximum cross slope for a hairpin turn
+- Angle beyond which a turn is considered a hairpin turn
+- Minimum longitudinal slope
+- Maximum longitudinal slope
+- Direction change penalty*
+- Slope change penalty*
+- Size of the search neighborhood*
+- Maximum elevation difference between the route and the terrain
+- Maximum cumulative length where cross slope > maximum cross slope
+
+
+*Parameters inspired to the Qgis plugin "Forest Road Designer" (<https://github.com/GobiernoLaRioja/forestroaddesigner/>).
+
+
+### SylvaRoaD output data
+
+- Document detailing the modeling parameters and the results for each tested section
+- One polyline (shapefile) for each optimal section identified by the process
+- One polyline (shapefile) where the bends are traced for each optimal section identified by the process
+ 
+    
+&nbsp;   
+  
+
   
 ---  
 
@@ -83,6 +154,3 @@ __Licence SylvaRoaD :__
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see https://www.gnu.org/licenses/
-
-
-

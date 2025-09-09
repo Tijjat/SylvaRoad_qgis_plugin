@@ -135,13 +135,7 @@ class sylvaroadDialog(QtWidgets.QDialog, FORM_CLASS):
     def launch(self):
         Hdebut = datetime.datetime.now()
         printor(10)
-        ##test
-        self.lineEdit_1.setText("C:/Users/yoann/Downloads/meisenthal2")
-        self.lineEdit_2.setText("C:/Users/yoann/Downloads/meisenthal2/mnt_rgealti_5m.tif")
-        self.lineEdit_3.setText("C:/Users/yoann/Downloads/meisenthal2/empty")
-        self.lineEdit_4.setText("C:/Users/yoann/Downloads/meisenthal2/test7.shp")
-        self.lineEdit_6.setText("C:/Users/yoann/Downloads/meisenthal2/results2")
-        ##
+     
         Wspace,Dtm_file,Obs_Dir,Waypoints_file,Property_file,Result_Dir,trans_slope_all,trans_slope_hairpin,min_slope,max_slope,penalty_xy,penalty_z,D_neighborhood,max_diff_z,angle_hairpin,Lmax_ab_sl,Radius = self.get_variables()
         
         if 'Wspace' not in locals() or 'Wspace' not in globals() :
