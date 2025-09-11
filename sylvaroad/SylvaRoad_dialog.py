@@ -89,14 +89,7 @@ class sylvaroadDialog(QtWidgets.QDialog, FORM_CLASS):
             text_edit.setText(selected_file)
 
 
-#####################################################################################################################
-#  _______  _______ .___________.   ____    ____  ___      .______    __       ___      .______    __       _______ #
-# /  _____||   ____||           |   \   \  /   / /   \     |   _  \  |  |     /   \     |   _  \  |  |     |   ____|#
-#|  |  __  |  |__   `---|  |----`    \   \/   / /  ^  \    |  |_)  | |  |    /  ^  \    |  |_)  | |  |     |  |__   #
-#|  | |_ | |   __|      |  |          \      / /  /_\  \   |      /  |  |   /  /_\  \   |   _  <  |  |     |   __|  #
-#|  |__| | |  |____     |  |           \    / /  _____  \  |  |\  \-.|  |  /  _____  \  |  |_)  | |  `----.|  |____ #
-# \______| |_______|    |__|            \__/ /__/     \__\ | _| `.__||__| /__/     \__\ |______/  |_______||_______|#
-#####################################################################################################################
+
             
             
     def get_variables(self):
@@ -152,16 +145,19 @@ class sylvaroadDialog(QtWidgets.QDialog, FORM_CLASS):
                                                                     trans_slope_all,trans_slope_hairpin,min_slope,max_slope,
                                                                     penalty_xy,penalty_z,D_neighborhood,max_diff_z,
                                                                     angle_hairpin,Lmax_ab_sl,Wspace,Radius)
-        except Exception as e:
             printor(12,"Rspace: ",Rspace)
             printor(12,"param: ",param)
             printor(12,"res_process: ",res_process)
+        except Exception as e:
             printor(2, e)
             Sylvaroad_UI.abort()
+
         str_duree,str_fin,str_debut=heures(Hdebut) 
+
         try:
             create_param_file(Rspace,param,res_process,str_duree,str_fin,str_debut)
         except:pass
+        
         printor(5)
         printor(11)
         Sylvaroad_UI.abort()
